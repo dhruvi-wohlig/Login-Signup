@@ -6,7 +6,6 @@ import Home from './components/Home.vue'
 import SuccessPage from './components/SuccessPage.vue'
 
 Vue.use(VueRouter);
-
 const routes = [
       {path: '/', component: Home},
       {path: '/login', component: Login},
