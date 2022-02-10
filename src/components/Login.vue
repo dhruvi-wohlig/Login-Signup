@@ -10,12 +10,9 @@
         <div class="error" v-if="!$v.password.required">Required field</div>
         <br>
 
-        <a href="wwww.google.com">
-          <button class="button" type="submit" :disabled="submitStatus === 'PENDING'">Submit!</button>
-        </a>
-        <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
-        <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-        <p class="typo__p" v-if="submitStatus === 'PENDING'"> Sending... </p>
+        <button class="button" type="submit" :disabled="submitStatus === 'PENDING'">Submit!</button>
+        <p class="typo__p" v-if="submitStatus === 'OK'">Successfully Logged in!</p>
+        <p class="typo__p" v-if="submitStatus === 'ERROR'">Incorrect username or password</p>
     </form>
   </div>
 </template>
@@ -44,6 +41,11 @@ export default {
       }
     },
     methods: {
+      routing()
+      { 
+        if(this.submitStatus==='OK')
+        {  this.$router.push('/successfulPage')  }
+      },
       async submit() {
         console.log('submit!')
         this.$v.$touch()
@@ -63,12 +65,12 @@ export default {
               },
             }
             const data = await axios.request(options)
-            console.log(data)
-            this.submitStatus = 'PENDING'
-            setTimeout(() => {
-              this.submitStatus = 'OK'
-            }, 5000)
+            console.log(data.status)
+            this.submitStatus = 'OK'
+            console.log(this.submitStatus);
           }
+           console.log(this.submitStatus);
+           this.routing();
       }
     },
   }
