@@ -1,5 +1,5 @@
 # authentication
-This is a github repository for signup and login authentication using NodeJS API Integration
+This is a github repository for signup and login authentication with NodeJS API Integration
 
 ## Project setup
 ```
