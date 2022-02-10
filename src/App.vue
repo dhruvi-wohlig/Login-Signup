@@ -1,27 +1,19 @@
 <template>
   <div id="app">
-      <register-form></register-form>
-      <login></login>
-  </div>
- 
- 
+    <router-view></router-view>
+  </div> 
 </template>
 
 <script>
-import RegisterForm from './components/RegisterForm.vue'
-import Login from './components/Login.vue'
 
 export default {
   name: 'App',
   components: {
-    RegisterForm,
-    Login
   }
 }
 </script>
 
-<styl
-    RegisterForme>
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
